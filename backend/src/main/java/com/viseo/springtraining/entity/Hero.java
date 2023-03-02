@@ -1,11 +1,17 @@
 package com.viseo.springtraining.entity;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+import java.io.Serializable;
 
 @Entity
-public class Hero {
+@Table(name = "hero")
+public class Hero implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
@@ -14,7 +20,9 @@ public class Hero {
     public Hero() {
     }
 
-    public Hero(Long id, String name) {
+    @JsonCreator
+    public Hero(@JsonProperty("id") Long id,
+                @JsonProperty("name") String name) {
         this.id = id;
         this.name = name;
     }
