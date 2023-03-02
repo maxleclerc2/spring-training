@@ -11,6 +11,15 @@ services:
     ports:
       - "25000:25000"
 
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    depends_on:
+      - backend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+
   db:
     container_name: postgres
     image: postgres:15.2-alpine
