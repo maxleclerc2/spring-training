@@ -26,7 +26,7 @@ public class HeroController {
         return heroService.getHeroById(id);
     }
 
-    @PostMapping
+    @RequestMapping(method = { RequestMethod.PUT,  RequestMethod.POST })
     public Hero createHero(@RequestBody Hero newHero) {
         return this.heroService.createHero(newHero);
     }
