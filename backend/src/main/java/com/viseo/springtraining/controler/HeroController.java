@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/hero")
+@CrossOrigin("*")
 public class HeroController {
     private final HeroService heroService;
 

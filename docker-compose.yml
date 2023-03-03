@@ -3,8 +3,8 @@ version: '3.1'
 
 services:
   backend:
-    build: ./backend
-    container_name: backend
+    image: viseo/spring-training-backend:0.0.1-SNAPSHOT
+    container_name: spring-training-backend
     restart: unless-stopped
     depends_on:
       - db
@@ -13,7 +13,8 @@ services:
 
   frontend:
     build: ./frontend
-    container_name: frontend
+    image: viseo/spring-training-frontend:0.0.1-SNAPSHOT
+    container_name: spring-training-frontend
     depends_on:
       - backend
     restart: unless-stopped
@@ -21,7 +22,7 @@ services:
       - "80:80"
 
   db:
-    container_name: postgres
+    container_name: spring-training-postgres
     image: postgres:15.2-alpine
     restart: always
     ports:
