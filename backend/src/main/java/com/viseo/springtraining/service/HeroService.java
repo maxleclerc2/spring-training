@@ -13,11 +13,15 @@ public class HeroService {
     private HeroRepository heroRepository;
 
     public List<Hero> getHeroes() {
-        return this.heroRepository.findAll();
+        return this.heroRepository.findAllByOrderByIdAsc();
     }
 
     public Hero getHeroById(Long id) {
         return this.heroRepository.findById(id).get();
+    }
+
+    public List<Hero> searchHeroByName(String name) {
+        return this.heroRepository.findByNameContainingIgnoreCase(name);
     }
 
     public Hero createHero(Hero newHero) {
