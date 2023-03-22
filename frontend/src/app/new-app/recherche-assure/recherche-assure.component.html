@@ -1,1 +1,18 @@
-<p>recherche-assure works!</p>
+<form [formGroup]="searchForm" (keyup.enter)="onSubmit()">
+    <div>
+        <label for="search-id">N° adhérent : </label>
+        <input id="search-id" formControlName="id">
+    </div>
+    <div>
+        <label for="search-surname">Nom : </label>
+        <input id="search-surname" formControlName="name">
+    </div>
+    <div>
+        <label for="search-ssn">N° SS : </label>
+        <input id="search-ssn" formControlName="ssn">
+    </div>
+    <div>
+        <label for="search-contract">Contrat : </label>
+        <input id="search-contract" formControlName="contract">
+    </div>
+</form>

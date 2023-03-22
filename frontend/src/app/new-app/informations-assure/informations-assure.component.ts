@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Assure } from '../assure';
 import { AssureService } from '../assure.service';
 
@@ -10,13 +11,17 @@ import { AssureService } from '../assure.service';
 export class InformationsAssureComponent {
     assure: Assure | undefined;
 
-    constructor(private assureService: AssureService) {}
+    constructor(
+        private route: ActivatedRoute,
+        private assureService: AssureService
+    ) {}
 
     ngOnInit(): void {
         this.getAssure();
     }
 
     getAssure(): void {
-        this.assureService.getAssure(123).subscribe(assure => this.assure = assure);
+        const id = Number(this.route.snapshot.paramMap.get('id'));
+        this.assureService.getAssure(id).subscribe(assure => this.assure = assure);
     }
 }

@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'creation-surcomplementaire-assure', component: FicheCreationSurcomplementaireAssureComponent },
+  { path: 'creation-surcomplementaire-assure/:id', component: FicheCreationSurcomplementaireAssureComponent },
 ];
 
 @NgModule({
